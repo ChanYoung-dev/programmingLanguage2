@@ -12,7 +12,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa950a61-c502-44ec-9c28-a2e4156d360d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../README_ENG.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../build/build.js" beforeDir="false" />
@@ -544,12 +543,12 @@
       <workItem from="1567642173174" duration="1509000" />
       <workItem from="1568008845431" duration="12000" />
       <workItem from="1568792548266" duration="3548000" />
-      <workItem from="1568851863702" duration="589000" />
+      <workItem from="1568851863702" duration="1124000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5658000" />
+    <option name="totallyTimeSpent" value="6193000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
