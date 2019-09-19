@@ -1,7 +1,3 @@
-/*
- * 좌석예약시스템
- * n명의 좌석을 예약하는 시스템
- */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -9,16 +5,17 @@
 #define COLS 5
 
 int main() {
-    int s[ROWS][COLS]; // 2차원 배열 선언
-    int i, j; // 2개의 인덱스 변수
-    for (i = 0; i < ROWS; i++)
-        for (j = 0; j < COLS; j++)
-            s[i][j] = rand() % 100;
-    for (i = 0; i < ROWS; i++)
-    {
-        for (j = 0; j < COLS; j++)
-            printf(" % 02d ", s[i][j]);
-        printf("\n");
+    int a[ROWS][COLS] = { { 87, 98, 80, 76, 3 },
+                          { 99, 89, 90, 90, 0 },
+                          { 65, 68, 50, 49, 0 }
+    };
+
+    int i;
+    for (i = 0; i < ROWS; i++) {
+        double final_scores = a[i][0] * 0.3 + a[i][1] * 0.4 +
+        a[i][2] * 0.2 + a[i][3] * 0.1 - a[i][4];
+        printf("학생 %i의 최종성적 = %10.2f \n", i + 1, final_scores);
     }
     return 0;
+
 }
