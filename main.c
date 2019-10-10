@@ -1,17 +1,13 @@
 #include <stdio.h>
 int main(void)
 {
+    char src[] = "The worst things to eat before you sleep";
+    char dst[100];
     int i;
-    char str[4];
-    str[0] = 'a';
-    str[1] = 'b';
-    str[2] = 'c';
-    str[3] = '\0';
-
-    i = 0;
-    while(str[i] != '\0')	{
-        printf("%c", str[i]);
-        i++;
-    }
+    printf("원본 문자열=%s\n", src);
+    for(i=0 ; src[i] != '\0' ; i++)
+        dst[i] = src[i];
+    dst[i] = '\0';
+    printf("복사된 문자열=%s\n", dst);
     return 0;
 }
