@@ -1,28 +1,32 @@
 #define SIZE 3
 
+struct date {
+    int month;
+    int day;
+    int year;
+};
+
 struct student {
     int number;
     char name[20];
     double grade;
+    struct date *dob;
 };
 int main(void)
 {
-    struct student list[SIZE];
-    int i;
+    struct date d = { 3, 20, 1980 };
+    struct student s = { 20190001, "Kim", 4.3 };
 
-    for(i = 0; i < SIZE; i++)
-    {
-        printf("학번을 입력하시오: ");
-        scanf("%d", &list[i].number);
-        printf("이름을 입력하시오: ");
-        scanf("%s", list[i].name);
-        printf("학점을 입력하시오(실수): ");
-        scanf("%lf", &list[i].grade);
-    }
+    s.dob = &d;
 
-    for(i = 0; i< SIZE; i++)
-        printf("학번: %d, 이름: %s,  학점: %f\n", list[i].number, list[i].name, list[i].grade);
+    printf("학번: %d\n", s.number);
+    printf("이름: %s\n", s.name);
+    printf("학점: %f\n", s.grade);
+    printf("생년월일: %d년 %d월 %d일\n", s.dob->year, s.dob->month, s.dob->day);
+
+
     return 0;
+
 }
 
 
