@@ -1,1 +1,4 @@
-.idea/workplace.xml
+.idea/
+.DS_store
+cmake-build-debug/
+CMakeLists.txt
