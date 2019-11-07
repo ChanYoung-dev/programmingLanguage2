@@ -1,39 +1,26 @@
-#define SIZE 3
+#include <stdio.h>
 
-struct date {
-    int month;
-    int day;
-    int year;
+struct book {
+    int id;
+    char author[30];
+    char title[100];
 };
+typedef struct bookT{
+    int id;
+    char author[30];
+    char title[100];
+}BOOKT;
 
-struct student {
-    int number;
-    char name[20];
-    double grade;
-    struct date *dob;
-};
 int main(void)
 {
-    struct date d = { 3, 20, 1980 };
-    struct student s = { 20190001, "Kim", 4.3 };
+    struct book s = { 1, "바람과 함께 사라지다", "미가렛 미첼" };
+    struct book *p;
+    BOOKT bt = { 1, "바람과 함께 사라지다", "미가렛 미첼" };
+    p = &s;
 
-    s.dob = &d;
-
-    printf("학번: %d\n", s.number);
-    printf("이름: %s\n", s.name);
-    printf("학점: %f\n", s.grade);
-    printf("생년월일: %d년 %d월 %d일\n", s.dob->year, s.dob->month, s.dob->day);
-
-
+    printf("{ %d,%s,%s }\n", s.id, s.author, s.title);
+    printf("{ %d,%s,%s }\n", (*p).id,(*p).author,(*p).title);
+    printf("{ %d,%s,%s }\n", p->id, p->author, p->title);
+    printf("{ %d,%s,%s }\n", bt.id, bt.author, bt.title);
     return 0;
-
 }
-
-
-
-
-
-
-
-
-
