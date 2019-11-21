@@ -1,26 +1,16 @@
 #include <stdio.h>
-
-struct book {
-    int id;
-    char author[30];
-    char title[100];
-};
-typedef struct bookT{
-    int id;
-    char author[30];
-    char title[100];
-}BOOKT;
-
 int main(void)
 {
-    struct book s = { 1, "바람과 함께 사라지다!", "미가렛 미첼" };
-    struct book *p;
-    BOOKT bt = { 1, "바람과 함께 사라지다!", "미가렛 미첼" };
-    p = &s;
+    FILE *fp = NULL;
+    fp = fopen("sample.txt", "w");
+    if( fp == NULL )
+        printf("파일 열기 실패\n");
+    else
+        printf("파일 열기 성공\n");
 
-    printf("{ %d,%s,%s }\n", s.id, s.author, s.title);
-    printf("{ %d,%s,%s }\n", (*p).id,(*p).author,(*p).title);
-    printf("{ %d,%s,%s }\n", p->id, p->author, p->title);
-    printf("{ %d,%s,%s }\n", bt.id, bt.author, bt.title);
+    fputc('a', fp);
+    fputc('b', fp);
+    fputc('c', fp);
+     	fclose(fp);
     return 0;
 }
