@@ -1,35 +1,30 @@
+//arr[0](첫번째 행)의 합을 구한다.
+//arr[1](두번째 행)의 합을 구한다.
+//arr[2](세번째 행)의 합을 구한다.
+// 각 1차원 배열의 합들을 전부 더 해주어서 2차원 배열의 총합 값을 구한다.
 #include <stdio.h>
 #include <string.h>
-//이중포인터 q를 통하여 외부의 포인터 p를 변경
-//함수 호출시에 인수들은 복사본이 전달되기때문에 p자체를 변경하려면 p의 주소를 변경해야한다.
-void set_proverb(char **q, int n) {
-    static char *array[10] = {"A bad shearer never had a good sickle",
-                              "A bad workman (always) blames his tools",
-                              "A bad workman quarrels with his tools",
-                              "A bad thing never dies",
-                              "The grass is always greener on the other side of the fence.",
-                              "Don’t judge a book by its cover.",
-                              " Strike while the iron is hot.",
-                              "Too many cooks spoil the broth",
-                              "You can’t have your cake and eat it too.",
-                              "Many hands make light work"
-    };
-    //배열은 0원소번호부터 시작하지만 사용자는 n번째를 선택했으니 n-1을 해준다.
-    *q = array[n-1];
+//1차원 배열의 합을 구한다.
+//각 행의 열값들의 총합이다.
+int get_sum(int array[], int size) {
+    int i, sum = 0;
+    //열의 값들을 전부 더해준다.
+    for(i=0; i<size; i++)
+        //i+1번째 열의 값을 sum에 더해준다.
+        sum += array[i];
+    //결과값 출력
+    return sum;
 }
 int main() {
-
-    //문자열의 주소를 저장하는 포인터 p
-    char *p;
-    //사용자가 원하는 n번째 속담
-    int n;
-    printf("몇 번째 속담을 선택하시겠습니까?  ");
-    scanf("%d", &n);
-    //포인터 p의 주소를 전달한다.
-    set_proverb(&p, n);
-    //문자열을 출력하기 위해 문자열의 주소(p)입력
-    printf("selected proverb = %s \n", p);
-
+    int arr[3][6] = {{10,10,10,10,10,10},
+                     {10,10,10,10,10,10},
+                     {10,10,10,10,10,10}
+    };
+    int i, sum = 0;
+    //첫번쨰부터 세번째 행들의 합을 전부 더 해준다.
+    for(i=0; i<3; i++)
+        //i+1번째 행의 열값 총합을 sum에 더해준다.
+        sum += get_sum(arr[i], sizeof(arr[i]) / sizeof(arr[i][0]));
+    printf("정수들의 합 : %d \n", sum);
     return 0;
 }
-
