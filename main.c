@@ -1,30 +1,54 @@
-//arr[0](첫번째 행)의 합을 구한다.
-//arr[1](두번째 행)의 합을 구한다.
-//arr[2](세번째 행)의 합을 구한다.
-// 각 1차원 배열의 합들을 전부 더 해주어서 2차원 배열의 총합 값을 구한다.
+//score[0](첫번째 행)의 평균값을 구한다. 첫번째 학생의 점수 평균값이다.
+//socre[1](두번째 행)의 평균값을 구한다. 두번째 학생의 점수 평균값이다.
+//score[2](세번째 행)의 평균값을 구한다. 세번째 학생의 점수 평균값이다.
+// 각각의 평균값을 출력한다.
 #include <stdio.h>
 #include <string.h>
-//1차원 배열의 합을 구한다.
-//각 행의 열값들의 총합이다.
-int get_sum(int array[], int size) {
-    int i, sum = 0;
-    //열의 값들을 전부 더해준다.
-    for(i=0; i<size; i++)
-        //i+1번째 열의 값을 sum에 더해준다.
-        sum += array[i];
-    //결과값 출력
-    return sum;
+#define STUDENT 3
+#define SUBJECT 6
+//배열 출력
+//2차원 배열 인자로 받을 땐 score[][X]처럼 뒤에 숫자를 넣어줘야한다.
+void score_print(int arr[][SUBJECT]) {
+    int i, j;
+    //전체 학생 점수 출력
+    for(i=0; i<STUDENT; i++) {
+        //i+1번째 학생의 점수 출력
+        for(j=0; j<SUBJECT; j++)
+            printf("%d ", arr[i][j]);
+        printf("\n");
+    }
+    printf("\n");
+}
+//한명의 학생의 점수 평균값 구하기
+double get_average(int list[], int n) {
+    int i;
+    //점수의 총합
+    double sum = 0;
+    //n개의 점수를 sum에 전부 더해준다.
+    for(i=0; i<n; i++)
+        //i+1번째 과목점수를 sum에 더해준다.
+        sum += list[i];
+    // 총점수/과목수 = 평균값
+    return ( sum / n );
 }
 int main() {
-    int arr[3][6] = {{10,10,10,10,10,10},
-                     {10,10,10,10,10,10},
-                     {10,10,10,10,10,10}
+    // 점수를 임의로 정해준다.
+    //첫번째 행은 첫번째 학생의 점수들
+    //두번째 행은 두번째 학생의 점수들
+    //세번째 행은 세번째 학생의 점수들이다.
+    int scores[STUDENT][SUBJECT]= {{40,20,60,50,52,37},
+                                {100,99,45,13,56,67},
+                                {100,20,67,33,66,75}
     };
-    int i, sum = 0;
-    //첫번쨰부터 세번째 행들의 합을 전부 더 해준다.
-    for(i=0; i<3; i++)
-        //i+1번째 행의 열값 총합을 sum에 더해준다.
-        sum += get_sum(arr[i], sizeof(arr[i]) / sizeof(arr[i][0]));
-    printf("정수들의 합 : %d \n", sum);
+    int i, size;
+    //2차원배열을 출력한다.
+    //각 학생의 점수를 출력
+    score_print(scores);
+    // 전체 학생의 점수 평균값을 출력
+    // 한명씩 점수를 보여주는 것을 STUDENT(4명)씩 반복하여 전체를 보여준다.
+    for(i=0; i<STUDENT; i++)
+        //한명의 점수 평균값을 보여준다.
+        printf(" 학생%d의 평균 : %.1f \n", i+1, get_average(scores[i], sizeof(scores[i]) / sizeof(scores[i][0])));
+
     return 0;
 }
